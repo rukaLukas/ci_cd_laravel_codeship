@@ -1,6 +1,11 @@
-- name: tests
+- name: prepare
   service: php
   command: composer install --no-interaction
+
+- name: tests
+  service: php
+  command: ./vendor/bin/phpunit
+
 - name: static Analysis
   tag: main
   service: php
