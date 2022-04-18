@@ -37,6 +37,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
 
+COPY env.example .env
+
 RUN composer install --no-interaction
 
 # Assign permissions of the working directory to the www-data user
@@ -46,4 +48,4 @@ RUN chown -R www-data:www-data \
 
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 9000
-CMD ["php-fpm", "php", "artisan", "key:generate"]
+CMD ["php-fpm"]
