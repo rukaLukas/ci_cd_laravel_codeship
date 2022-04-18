@@ -1,6 +1,6 @@
 - name: tests
   service: php
-  command: php -v
+  command: pwd
 - name: static Analysis
   tag: main
   service: php
