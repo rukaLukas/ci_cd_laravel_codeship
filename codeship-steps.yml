@@ -1,7 +1,7 @@
 - name: tests
   service: php
-  command: phpunit
-- name: deploy
+  command: ./vendor/bin/phpunit
+- name: static Analysis
   tag: main
   service: php
-  command: php artisan serve --host=0.0.0.0
+  command: ./vendor/bin/psalm --no-cache --show=true
