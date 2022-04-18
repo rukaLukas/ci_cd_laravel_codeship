@@ -1,9 +1,6 @@
 - name: prepare
   service: php
   command: composer install --no-interaction
-
-- name: list_dir
-  service: php
   command: ls -l
 
 - name: tests
