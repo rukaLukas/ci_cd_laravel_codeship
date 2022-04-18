@@ -1,0 +1,7 @@
+- name: tests
+  service: app
+  command: phpunit
+- name: deploy
+  tag: main
+  service: app
+  command: php artisan serve --host=0.0.0.0
