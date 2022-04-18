@@ -1,6 +1,6 @@
 - name: tests
   service: php
-  command: ./vendor/bin/phpunit
+  command: php -v
 - name: static Analysis
   tag: main
   service: php
