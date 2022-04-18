@@ -1,8 +1,12 @@
 - name: prepare
-  service: php
-  command: composer install --no-interaction
-  command: ls -l
-
+  steps:
+  - type: serial
+    steps:
+      - service: php
+        command: composer install --no-interaction
+      - service: php
+        command: ls -l
+        
 - name: tests
   service: php
   command: php ./vendor/bin/phpunit
