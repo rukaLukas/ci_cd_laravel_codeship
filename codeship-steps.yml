@@ -4,4 +4,4 @@
 - name: static Analysis
   tag: main
   service: php
-  command: ./vendor/bin/psalm --no-cache --show=true
+  command: php -v
