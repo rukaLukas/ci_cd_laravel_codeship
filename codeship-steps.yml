@@ -1,7 +1,7 @@
 - name: tests
-  service: app
+  service: php
   command: phpunit
 - name: deploy
   tag: main
-  service: app
+  service: php
   command: php artisan serve --host=0.0.0.0
