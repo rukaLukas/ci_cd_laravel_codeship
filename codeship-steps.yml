@@ -1,17 +1,27 @@
-- name: prepare
-  steps:
-  - type: serial
-    steps:
-      - service: php
-        command: composer install --no-interaction
-      - service: php
-        command: ls -l
+# - name: prepare
+#   steps:
+#   - type: serial
+#     steps:
+#       - service: php
+#         command: composer install --no-interaction
+#       - service: php
+#         command: ls -l
         
-- name: tests
-  service: php
-  command: php ./vendor/bin/phpunit
+# - name: tests
+#   service: php
+#   command: php ./vendor/bin/phpunit
 
-- name: static Analysis
-  tag: main
-  service: php
-  command: php -v
+# - name: static Analysis
+#   tag: main
+#   service: php
+#   command: php -v
+
+
+- type: serial
+  tag: "main"
+  encrypted_dockercfg_path: dockercfg.encrypted
+  services:
+  - php
+  steps:
+  - command: composer install --no-interaction
+  - command: ls -l
