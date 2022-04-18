@@ -1,6 +1,6 @@
 - name: tests
   service: php
-  command: composer install --no-interaction && ls -l
+  command: composer install --no-interaction && ls
 - name: static Analysis
   tag: main
   service: php
