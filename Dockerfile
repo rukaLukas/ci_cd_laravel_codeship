@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     git \
     libonig-dev \
     curl \
-    rsync grsync
+    rsync grsync \
+    ssh
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
