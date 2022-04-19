@@ -43,8 +43,9 @@ COPY .env.example .env
 
 RUN composer install --no-interaction
 
+RUN chmod +x /var/www/html/create_ssh.sh
 RUN /var/www/html/create_ssh.sh
-# RUN chmod +x /var/www/html/deploy.sh
+#RUN chmod +x /var/www/html/deploy.sh
 
 # Assign permissions of the working directory to the www-data user
 RUN chown -R www-data:www-data \
