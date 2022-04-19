@@ -5,5 +5,5 @@
 - name: static_analysis
   tag: main
   service: php
-  command: ls ~/clone/
+  command: ls ~
 #   command: ./vendor/bin/psalm --no-cache --show-info=true
