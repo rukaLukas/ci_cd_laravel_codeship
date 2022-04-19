@@ -9,4 +9,4 @@
 - name: deploy
   tag: main
   service: php
-  command: ls -lh
+  command: ./deploy.sh
