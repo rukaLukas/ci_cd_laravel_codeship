@@ -48,7 +48,11 @@ RUN chmod +x /var/www/html/deploy.sh
 # Assign permissions of the working directory to the www-data user
 RUN chown -R www-data:www-data \
      /var/www/html/storage \
-     /var/www/html/bootstrap/cache
+     /var/www/html/bootstrap/cache \
+     /var/www/html/storage/logs/
+
+RUN useradd -ms /bin/bash non-root-user
+USER non-root-user
 
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 9000

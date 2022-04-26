@@ -1,12 +1,33 @@
 - name: tests
   tag: main
-  service: php
+  service: app
   command: ./vendor/bin/phpunit
+
 - name: static_analysis
   tag: main
-  service: php
+  service: app
   command: ./vendor/bin/psalm --no-cache --show-info=true
+
+# - name: Prepare Deploy 1 - write private key to mapped `.ssh` volume
+#   service: app
+#   command: write
+
+- name: Prepare ddeploy 1 - reinstate SSH Private Key File
+  service: app
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+#   command: /bin/bash -c "echo -e mv codeship_deploy_key /root/.ssh/id_rsa"
+
+- name: Prepare ddeploy 2 - chmod id_rsa
+  service: app
+  command: chmod 600 /root/.ssh/id_rsa
+
+
+# https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+# - name: Prepare Deploy 2 - confirm ssh connection to server, authenticating with private key from `.ssh` volume
+#   service: php
+#   command: /bin/bash -c "ssh -o StrictHostKeyChecking=no -T git@github.com 2>&1 | grep 'successfully authenticated'"
+
 - name: deploy
   tag: main
-  service: php
+  service: app
   command: ./deploy.sh

@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-rsync -avz ./ root@134.209.193.47:/var/www/backend/ci_cd_laravel_codeship
+rsync -avz ./ root@137.184.144.59:/var/www/backend/ci_cd_laravel_codeship
+docker-compose up --build
