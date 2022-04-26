@@ -41,5 +41,5 @@
 
 - name: deploy
   tag: main
-  service: app
+  service: ssh-helper
   command: ./deploy.sh
