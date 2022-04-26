@@ -1,8 +1,8 @@
-# php:
-#   build: .
-#   cached: true
-#   volumes:
-#     - ./.ssh:/home/non-root-user/.ssh
+php:
+  build: .
+  cached: true
+  volumes:
+    - ./:./
 
 # ssh-helper:
 #   image: codeship/ssh-helper
@@ -11,15 +11,15 @@
 #   encrypted_env_file:
 #     - codeship.env.encrypted
 
-app:
+ssh-helper:
   build:
     image: codeship/setting-ssh-key-test
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile-ssh
   encrypted_env_file:
     - codeship.env.encrypted
   volumes:
   # mapping to `.ssh` directory ensures that `id_rsa` file persists to subsequent steps
   # replace container pathing if $HOME is not `/root`
-    - ./.ssh:/non-root-user/.ssh
-    - ./:/var/www/html/
+    - ./.ssh:/root/.ssh
+    # - ./:/var/www/html/
     # - ./:/var
