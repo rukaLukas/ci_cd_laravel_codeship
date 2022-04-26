@@ -31,4 +31,4 @@
   tag: main
   service: ssh-helper
   # command: ./deploy.sh
-  command: pwd
+  command: ls -a
