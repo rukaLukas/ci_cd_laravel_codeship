@@ -24,4 +24,4 @@ Homestead.json
 
 # Codeship
 codeship.aes
-codeship.env
+# codeship.env
