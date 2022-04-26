@@ -2,7 +2,7 @@ php:
   build: .
   cached: true
   volumes:
-    - ./:./
+    - ./.ssh:/home/root/.ssh
 
 # ssh-helper:
 #   image: codeship/ssh-helper
