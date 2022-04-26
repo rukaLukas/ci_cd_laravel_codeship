@@ -12,11 +12,12 @@
 #   service: app
 #   command: write
 
-- name: Prepare deploy 1 - reinstate SSH Private Key File
+- name: reinstate SSH Private Key File
   service: ssh-helper
-  command: /bin/bash -c "echo -e mv codeship_deploy_key /root/.ssh/id_rsa"
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+#    command: /bin/bash -c "echo -e mv codeship_deploy_key /root/.ssh/id_rsa"
 
-- name: Prepare ddeploy 2 - chmod id_rsa
+- name: chmod id_rsa
   service: ssh-helper
   command: chmod 600 /root/.ssh/id_rsa
 
