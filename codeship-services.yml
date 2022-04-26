@@ -11,7 +11,7 @@
 #   encrypted_env_file:
 #     - codeship.env.encrypted
 
-php:
+app:
   build:
     image: codeship/setting-ssh-key-test
     dockerfile: Dockerfile
