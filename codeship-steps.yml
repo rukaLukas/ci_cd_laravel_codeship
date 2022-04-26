@@ -26,12 +26,12 @@
 
 - name: Prepare ddeploy 1 - reinstate SSH Private Key File
   service: app
-  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /root/.ssh/id_rsa"
+  command: /bin/bash -c "echo -e $PRIVATE_SSH_KEY >> /non-root-user/.ssh/id_rsa"
 #   command: /bin/bash -c "echo -e mv codeship_deploy_key /root/.ssh/id_rsa"
 
 - name: Prepare ddeploy 2 - chmod id_rsa
   service: app
-  command: chmod 600 /root/.ssh/id_rsa
+  command: chmod 600 /non-root-user/.ssh/id_rsa
 
 
 # https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
