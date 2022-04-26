@@ -21,4 +21,4 @@ ssh-helper:
   # mapping to `.ssh` directory ensures that `id_rsa` file persists to subsequent steps
   # replace container pathing if $HOME is not `/root`
     - ./.ssh:/root/.ssh
-    - ./:/var
+    - ./:/app
