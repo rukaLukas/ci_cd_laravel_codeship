@@ -35,23 +35,33 @@ services:
     networks:
       - app-network
 
-  # db:
-  #   image: mysql:5.7.22
-  #   container_name: db
-  #   restart: unless-stopped
-  #   tty: true
-  #   environment:
-  #     MYSQL_DATABASE: laravel_web
-  #     SERVICE_TAGS: dev
-  #     SERVICE_NAME: mysql
-  #     MYSQL_ROOT_PASSWORD: root
-  #   volumes:
-  #     - dbdata:/var/lib/mysql
-  #     - ./mysql/my.cnf:/etc/mysql/my.cnf
-  #   ports:
-  #     - 3306:3306
-  #   networks:
-  #     - app-network
+  db:
+    image: mysql:8
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_DATABASE: laravel
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+
+  composer:
+    restart: 'no'
+    depends_on:
+      - webserver
+    image: composer:2
+    command: install --no-interaction
+    volumes:
+        - ./:/app
+    networks:
+      - app-network
 
 
 

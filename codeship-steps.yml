@@ -31,4 +31,4 @@
   tag: main
   service: ssh-helper
   # command: ./deploy.sh
-  command: scp -o StrictHostKeyChecking=no -r /app/ root@137.184.144.59:/var/www/backend/app
+  command: scp -o StrictHostKeyChecking=no -r /app/ root@137.184.144.59:/var/www/backend/app && docker-compose up
